@@ -11,187 +11,182 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav container">
-      <a href="#" class="brand">IO</a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button class="theme-toggle" aria-label="Toggle dark mode">🌙</button></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="layout">
+    <!-- ===== LEFT SIDEBAR ===== -->
+    <header class="sidebar">
+      <div class="sidebar-top">
+        <a href="#top" class="name-link">
+          <h1 class="name">Israel Ordoñez</h1>
+        </a>
+        <h2 class="role">Senior Software Engineer</h2>
+        <p class="tagline">
+          I build enterprise web applications, RESTful APIs, and system integrations
+          on the .NET platform.
+        </p>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero container">
-      <p class="eyebrow">Senior Software Engineer</p>
-      <h1>Hi, I'm <span class="accent">Israel Ordoñez</span>.<br />I build enterprise .NET systems.</h1>
-      <p class="lede">
-        I design and build enterprise web applications, RESTful APIs, and system
-        integrations with C# and the .NET stack. Currently a Senior Software Engineer
-        at <strong>Global Process Manager Inc.</strong>, working on partner
-        relationship management platforms.
-      </p>
-      <div class="hero-actions">
-        <a href="#work" class="btn btn-primary">View my work</a>
-        <a href="resume.pdf" class="btn btn-ghost">Download résumé</a>
+        <nav class="side-nav" aria-label="In-page navigation">
+          <ul>
+            <li><a href="#about" class="nav-item" data-section="about"><span class="nav-line"></span><span class="nav-text">About</span></a></li>
+            <li><a href="#experience" class="nav-item" data-section="experience"><span class="nav-line"></span><span class="nav-text">Experience</span></a></li>
+            <li><a href="#projects" class="nav-item" data-section="projects"><span class="nav-line"></span><span class="nav-text">Projects</span></a></li>
+          </ul>
+        </nav>
       </div>
-      <ul class="social">
-        <li><a href="https://github.com/israelordonez202-dot" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/israel-ordonez-0a484b166" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="mailto:israelordonez202@gmail.com">Email</a></li>
-      </ul>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section container">
-      <h2 class="section-title"><span class="num">01</span> About</h2>
-      <div class="about-grid">
-        <div class="about-text">
+      <div class="sidebar-bottom">
+        <ul class="socials">
+          <li><a href="https://github.com/israelordonez202-dot" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/israel-ordonez-0a484b166" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:israelordonez202@gmail.com">Email</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </header>
+
+    <!-- ===== RIGHT CONTENT ===== -->
+    <main class="content" id="top">
+      <!-- ABOUT -->
+      <section id="about" class="block">
+        <h3 class="block-label mobile-only">About</h3>
+        <div class="prose">
           <p>
-            I'm a Senior Software Engineer with <strong>9+ years</strong> building
-            production software on the .NET platform — from web applications and
-            RESTful APIs to enterprise system integrations.
+            I'm a Senior Software Engineer with <strong>9+ years</strong> of experience
+            building production software on the .NET platform. My work spans enterprise
+            web applications, RESTful APIs, and system integrations across the banking,
+            distribution, and partner-management domains.
           </p>
           <p>
-            I've delivered solutions across banking, distribution, and partner
-            management domains, owning projects end to end and working directly with
-            customers to turn requirements into reliable, maintainable systems.
+            I've owned projects end to end — from requirements and data modeling through
+            development, delivery, and customer support — and I take pride in building
+            systems that are reliable, maintainable, and genuinely useful to the teams
+            that depend on them.
+          </p>
+          <p>
+            Currently, I'm a Senior Software Engineer at <strong>Global Process Manager
+            Inc.</strong>, working with C# and partner relationship management platforms.
           </p>
         </div>
-        <div class="about-skills">
-          <h3>Core stack</h3>
+
+        <div class="skills-block">
+          <h4 class="skills-heading">Technologies I work with</h4>
           <ul class="chips">
             <li>C#</li><li>.NET</li><li>ASP.NET Core</li><li>ASP.NET MVC</li>
             <li>SQL Server</li><li>REST APIs</li><li>Microsoft Azure</li>
             <li>Azure Databricks</li><li>JavaScript</li><li>Git</li>
           </ul>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- WORK -->
-    <section id="work" class="section container">
-      <h2 class="section-title"><span class="num">02</span> Selected Work</h2>
-      <div class="projects">
-        <article class="project">
-          <div class="project-head">
-            <h3>Bank Reconciliation System</h3>
-          </div>
-          <p class="project-desc">
-            An enterprise application that automates the matching of bank transactions
-            against internal financial records, replacing a slow manual process and
-            improving accuracy for finance teams.
-          </p>
-          <ul class="tags"><li>C#</li><li>ASP.NET Core</li><li>SQL Server</li></ul>
-          <p class="impact">📈 <strong>Impact:</strong> Add a metric here — e.g. hours saved per close, error rate reduced.</p>
-        </article>
-
-        <article class="project">
-          <div class="project-head">
-            <h3>Integrated Distribution Support System (IDSS)</h3>
-          </div>
-          <p class="project-desc">
-            A web platform supporting distribution operations end to end — order and
-            inventory workflows, reporting, and back-office tooling for distributors.
-          </p>
-          <ul class="tags"><li>ASP.NET MVC</li><li>C#</li><li>SQL Server</li></ul>
-          <p class="impact">📈 <strong>Impact:</strong> Add a metric here — e.g. users served, throughput handled.</p>
-        </article>
-
-        <article class="project">
-          <div class="project-head">
-            <h3>Impartner PRM</h3>
-          </div>
-          <p class="project-desc">
-            Customization and integration work on the Impartner Partner Relationship
-            Management platform, connecting partner-facing workflows with internal
-            systems and data.
-          </p>
-          <ul class="tags"><li>C#</li><li>.NET</li><li>REST APIs</li><li>Integrations</li></ul>
-          <p class="impact">📈 <strong>Impact:</strong> Add a metric here — e.g. partners onboarded, processes automated.</p>
-        </article>
-
-        <article class="project">
-          <div class="project-head">
-            <h3>BulSU Internship Monitoring System <span class="badge">Personal</span></h3>
-            <div class="project-links">
-              <a href="https://github.com/israelordonez202-dot" target="_blank" rel="noopener">↗ Code</a>
+      <!-- EXPERIENCE -->
+      <section id="experience" class="block">
+        <h3 class="block-label mobile-only">Experience</h3>
+        <ol class="entry-list">
+          <li class="entry">
+            <div class="entry-period">Jan 2025 — Present</div>
+            <div class="entry-body">
+              <h3 class="entry-title">Senior Software Engineer · <span class="entry-org">Global Process Manager Inc.</span></h3>
+              <p class="entry-desc">Building enterprise solutions with C# and partner relationship management platforms. Remote · Philippines.</p>
+              <ul class="tags"><li>C#</li><li>Impartner PRM</li><li>Partner Management</li></ul>
             </div>
-          </div>
-          <p class="project-desc">
-            A system for Bulacan State University to track and monitor student
-            internships — managing student records, company placements, and progress
-            reporting for coordinators.
-          </p>
-          <ul class="tags"><li>ASP.NET</li><li>C#</li><li>SQL Server</li></ul>
-          <p class="impact">🎓 <strong>Personal project</strong> — built to solve a real campus workflow.</p>
-        </article>
-      </div>
-    </section>
+          </li>
+          <li class="entry">
+            <div class="entry-period">Oct 2023 — Feb 2025</div>
+            <div class="entry-body">
+              <h3 class="entry-title">Customer Success Engineer · <span class="entry-org">Information Professionals, Inc.</span></h3>
+              <p class="entry-desc">Specialized in .NET technologies — designing, developing, and implementing software solutions and working directly with customers. Hybrid.</p>
+              <ul class="tags"><li>ASP.NET MVC</li><li>ASP.NET Core</li><li>C#</li></ul>
+            </div>
+          </li>
+          <li class="entry">
+            <div class="entry-period">Aug 2020 — Oct 2024</div>
+            <div class="entry-body">
+              <h3 class="entry-title">.NET Developer · <span class="entry-org">Information Professionals, Inc.</span></h3>
+              <p class="entry-desc">Built web applications and RESTful APIs, working with Microsoft Azure and Azure Databricks.</p>
+              <ul class="tags"><li>.NET</li><li>REST APIs</li><li>Microsoft Azure</li><li>Azure Databricks</li></ul>
+            </div>
+          </li>
+          <li class="entry">
+            <div class="entry-period">Jul 2018 — Aug 2020</div>
+            <div class="entry-body">
+              <h3 class="entry-title">.NET Developer · <span class="entry-org">IT Managers, Inc.</span></h3>
+              <p class="entry-desc">Full-stack .NET development across web applications and back-end services.</p>
+              <ul class="tags"><li>.NET</li><li>SQL Server</li></ul>
+            </div>
+          </li>
+          <li class="entry">
+            <div class="entry-period">May 2017 — Jun 2018</div>
+            <div class="entry-body">
+              <h3 class="entry-title">Junior .NET Developer · <span class="entry-org">Optimax Solutions Systems, Inc.</span></h3>
+              <p class="entry-desc">Began my career building and maintaining .NET web applications.</p>
+              <ul class="tags"><li>.NET</li><li>C#</li></ul>
+            </div>
+          </li>
+        </ol>
+        <a href="resume.pdf" class="text-link">View full résumé <span aria-hidden="true">→</span></a>
+      </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section container">
-      <h2 class="section-title"><span class="num">03</span> Experience</h2>
-      <ol class="timeline">
-        <li>
-          <div class="timeline-meta">Jan 2025 — Present</div>
-          <div class="timeline-body">
-            <h3>Senior Software Engineer · <span class="accent">Global Process Manager Inc.</span></h3>
-            <p>Building enterprise solutions with C# and partner relationship management platforms. Remote · Philippines.</p>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-meta">Oct 2023 — Feb 2025</div>
-          <div class="timeline-body">
-            <h3>Customer Success Engineer · <span class="accent">Information Professionals, Inc.</span></h3>
-            <p>Specialized in .NET technologies — designing, developing, and implementing software solutions with ASP.NET MVC and ASP.NET Core, working closely with customers. Hybrid.</p>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-meta">Aug 2020 — Oct 2024</div>
-          <div class="timeline-body">
-            <h3>.NET Developer · <span class="accent">Information Professionals, Inc.</span></h3>
-            <p>Built web applications and RESTful APIs, working with Microsoft Azure and Azure Databricks.</p>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-meta">Jul 2018 — Aug 2020</div>
-          <div class="timeline-body">
-            <h3>.NET Developer · <span class="accent">IT Managers, Inc.</span></h3>
-            <p>Full-stack .NET development across web applications and back-end services.</p>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-meta">May 2017 — Jun 2018</div>
-          <div class="timeline-body">
-            <h3>Junior .NET Developer · <span class="accent">Optimax Solutions Systems, Inc.</span></h3>
-            <p>Started my career building and maintaining .NET web applications.</p>
-          </div>
-        </li>
-      </ol>
-    </section>
+      <!-- PROJECTS -->
+      <section id="projects" class="block">
+        <h3 class="block-label mobile-only">Projects</h3>
+        <ul class="entry-list">
+          <li class="entry project-entry">
+            <div class="entry-body">
+              <h3 class="entry-title">Bank Reconciliation System</h3>
+              <p class="entry-desc">
+                An enterprise application that automates matching of bank transactions
+                against internal financial records, replacing a manual process and
+                improving accuracy for finance teams.
+              </p>
+              <ul class="tags"><li>C#</li><li>ASP.NET Core</li><li>SQL Server</li></ul>
+            </div>
+          </li>
+          <li class="entry project-entry">
+            <div class="entry-body">
+              <h3 class="entry-title">Integrated Distribution Support System (IDSS)</h3>
+              <p class="entry-desc">
+                A web platform supporting distribution operations end to end — order and
+                inventory workflows, reporting, and back-office tooling for distributors.
+              </p>
+              <ul class="tags"><li>ASP.NET MVC</li><li>C#</li><li>SQL Server</li></ul>
+            </div>
+          </li>
+          <li class="entry project-entry">
+            <div class="entry-body">
+              <h3 class="entry-title">Impartner PRM</h3>
+              <p class="entry-desc">
+                Customization and integration work on the Impartner Partner Relationship
+                Management platform, connecting partner-facing workflows with internal
+                systems and data.
+              </p>
+              <ul class="tags"><li>C#</li><li>.NET</li><li>REST APIs</li></ul>
+            </div>
+          </li>
+          <li class="entry project-entry">
+            <div class="entry-body">
+              <h3 class="entry-title">
+                BulSU Internship Monitoring System
+                <a href="https://github.com/israelordonez202-dot" target="_blank" rel="noopener" class="entry-link" aria-label="View on GitHub">↗</a>
+                <span class="badge">Personal</span>
+              </h3>
+              <p class="entry-desc">
+                A system for Bulacan State University to track and monitor student
+                internships — managing student records, company placements, and progress
+                reporting for coordinators.
+              </p>
+              <ul class="tags"><li>ASP.NET</li><li>C#</li><li>SQL Server</li></ul>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section container contact">
-      <h2 class="section-title"><span class="num">04</span> Get in touch</h2>
-      <p class="contact-lede">
-        I'm open to senior engineering roles and interesting collaborations. The
-        fastest way to reach me is email.
-      </p>
-      <a href="mailto:israelordonez202@gmail.com" class="btn btn-primary">Say hello</a>
-    </section>
-  </main>
-
-  <footer class="site-footer container">
-    <p>© <span id="year"></span> Israel Ordoñez · Built with plain HTML/CSS, hosted on GitHub Pages.</p>
-  </footer>
+      <footer class="content-footer">
+        <p>
+          Designed and built by Israel Ordoñez. Coded in a text editor, built with plain
+          HTML &amp; CSS, and deployed with GitHub Pages.
+        </p>
+      </footer>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>

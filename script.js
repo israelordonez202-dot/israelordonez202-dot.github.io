@@ -1,19 +1,4 @@
-// Current year in footer
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// Mobile nav toggle
-const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
-navToggle.addEventListener("click", () => {
-  const open = navLinks.classList.toggle("open");
-  navToggle.setAttribute("aria-expanded", String(open));
-});
-// Close menu when a link is tapped
-navLinks.querySelectorAll("a").forEach((a) =>
-  a.addEventListener("click", () => navLinks.classList.remove("open"))
-);
-
-// Theme toggle with localStorage persistence
+// ===== Theme toggle with localStorage persistence =====
 const themeToggle = document.querySelector(".theme-toggle");
 const root = document.documentElement;
 
@@ -35,3 +20,23 @@ themeToggle.addEventListener("click", () => {
   applyTheme(next);
   localStorage.setItem("theme", next);
 });
+
+// ===== Active section highlighting in the sidebar nav =====
+const sections = document.querySelectorAll(".block[id]");
+const navItems = document.querySelectorAll(".nav-item");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+        navItems.forEach((item) => {
+          item.classList.toggle("active", item.dataset.section === id);
+        });
+      }
+    });
+  },
+  { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+);
+
+sections.forEach((section) => observer.observe(section));
