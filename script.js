@@ -1,42 +1,49 @@
-// ===== Theme toggle with localStorage persistence =====
-const themeToggle = document.querySelector(".theme-toggle");
-const root = document.documentElement;
-
-function applyTheme(theme) {
-  root.setAttribute("data-theme", theme);
-  themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
-}
-
-const saved = localStorage.getItem("theme");
-if (saved) {
-  applyTheme(saved);
-} else {
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  applyTheme(prefersDark ? "dark" : "light");
-}
-
-themeToggle.addEventListener("click", () => {
-  const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-  applyTheme(next);
-  localStorage.setItem("theme", next);
+// ===== Mobile nav toggle =====
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+navToggle.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  navToggle.setAttribute("aria-expanded", String(open));
 });
+navLinks.querySelectorAll("a").forEach((a) =>
+  a.addEventListener("click", () => navLinks.classList.remove("open"))
+);
 
-// ===== Active section highlighting in the sidebar nav =====
-const sections = document.querySelectorAll(".block[id]");
-const navItems = document.querySelectorAll(".nav-item");
+// ===== Active nav link on scroll =====
+const sections = document.querySelectorAll("section[id], body[id]");
+const linkFor = {};
+document.querySelectorAll(".nav-links a").forEach((a) => {
+  linkFor[a.getAttribute("href").replace("#", "")] = a;
+});
 
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute("id");
-        navItems.forEach((item) => {
-          item.classList.toggle("active", item.dataset.section === id);
-        });
+        Object.values(linkFor).forEach((a) => a.classList.remove("active"));
+        if (linkFor[id]) linkFor[id].classList.add("active");
       }
     });
   },
   { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
 );
+sections.forEach((s) => observer.observe(s));
 
-sections.forEach((section) => observer.observe(section));
+// ===== Contact form -> pre-filled email (static-site friendly) =====
+const form = document.querySelector(".contact-form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const message = form.message.value.trim();
+
+  if (!name || !email || !message) {
+    alert("Please fill in your name, email, and message.");
+    return;
+  }
+
+  const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+  const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
+  window.location.href = `mailto:israelordonez202@gmail.com?subject=${subject}&body=${body}`;
+});
